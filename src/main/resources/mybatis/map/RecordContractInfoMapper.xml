@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.founder.mapper.RecordContractInfoMapper">
+
+    <select id="findAll" resultType="com.founder.model.RecordContractInfo">
+    select * from RECORD_CONTRACT_INFO
+  </select>
+    <select id="findRecordNum" resultType="int">
+    select count(*) from bi_person_info@db_phdbd where FILING_FLAG='1'
+  </select>
+    <select id="findContract" resultType="int">
+    select  count(*) from sign@db_fds
+  </select>
+    <update id="updateCord" parameterType="RecordContractInfo">
+        update RECORD_CONTRACT_INFO
+        <set>
+            <if test="recordNum != null">recordNum=#{recordNum},</if>
+            <if test="contract != null">contract=#{contract},</if>
+            <if test="recordNot != null">recordNot=#{recordNot},</if>
+            <if test="contractNot != null">contractNot=#{contractNot}</if>
+        </set>
+    </update>
+</mapper>

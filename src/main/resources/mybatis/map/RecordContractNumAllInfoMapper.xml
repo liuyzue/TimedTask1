@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.founder.mapper.RecordContractNumAllInfoMapper">
+
+    <select id="findAll" resultType="com.founder.model.RecordContractNumAllInfo">
+    select * from RECORD_CONTRACT_NUM_ALL_INFO
+  </select>
+    <select id="findByID" parameterType="String" resultType="com.founder.model.User">
+    select * from jyzx_USER where id=#{id}
+  </select>
+</mapper>
