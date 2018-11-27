@@ -12,6 +12,6 @@ public class mainTest {
         ApplicationContext context = new ClassPathXmlApplicationContext("Spring-mybatis.xml");
         Cron sh= (Cron) context.getBean("RecordContractInfo");
 
-        sh.cron();
+        //sh.cron();
     }
 }
