@@ -9,11 +9,9 @@ import java.util.Date;
 
 public class mainTest {
     public static void main(String[] args) {
-        /*ApplicationContext context = new ClassPathXmlApplicationContext("Spring-mybatis.xml");
-        Cron sh= (Cron) context.getBean("TimedTask");
+        ApplicationContext context = new ClassPathXmlApplicationContext("Spring-mybatis.xml");
+        Cron sh= (Cron) context.getBean("RecordContractInfo");
 
-        sh.cron();*/
-        SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        System.out.println(sd.format(new Date()).getClass().toString());
+        sh.cron();
     }
 }

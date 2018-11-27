@@ -1,5 +1,7 @@
 package com.founder.model;
 
+import java.util.Date;
+
 /**
  * 数据表RECORD_CONTRACT_INFO
  *
@@ -18,6 +20,17 @@ public class RecordContractInfo {
     private int contractNot;
     // 数据创建时间
     private String createDate;
+
+    public RecordContractInfo(){
+
+    }
+
+    public RecordContractInfo(int recordNum, int contract){
+        this.contract=contract;
+        this.recordNum=recordNum;
+        this.recordNot=360000-recordNum;
+        this.contractNot=360000-contract;
+    }
 
     public int getRid() {
         return rid;

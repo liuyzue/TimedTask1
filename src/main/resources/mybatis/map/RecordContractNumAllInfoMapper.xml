@@ -7,7 +7,4 @@
     <select id="findAll" resultType="com.founder.model.RecordContractNumAllInfo">
     select * from RECORD_CONTRACT_NUM_ALL_INFO
   </select>
-    <select id="findByID" parameterType="String" resultType="com.founder.model.User">
-    select * from jyzx_USER where id=#{id}
-  </select>
 </mapper>

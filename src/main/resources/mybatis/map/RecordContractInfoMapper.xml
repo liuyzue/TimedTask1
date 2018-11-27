@@ -13,13 +13,14 @@
     <select id="findContract" resultType="int">
     select  count(*) from sign@db_fds
   </select>
-    <update id="updateCord" parameterType="RecordContractInfo">
+    <update id="updateCord" parameterType="com.founder.model.RecordContractInfo">
         update RECORD_CONTRACT_INFO
         <set>
             <if test="recordNum != null">recordNum=#{recordNum},</if>
             <if test="contract != null">contract=#{contract},</if>
             <if test="recordNot != null">recordNot=#{recordNot},</if>
-            <if test="contractNot != null">contractNot=#{contractNot}</if>
+            <if test="contractNot != null">contractNot=#{contractNot},</if>
+            <if test="createDate != null">CREATEDATE=#{createDate}</if>
         </set>
     </update>
 </mapper>
