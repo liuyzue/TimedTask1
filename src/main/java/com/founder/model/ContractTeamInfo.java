@@ -10,11 +10,16 @@ public class ContractTeamInfo {
     private int rid;
     // 团队名称
     private String team_name;
-    // 团队人数
+    // 签约人数
     private int peopleNum;
     // 团队排名
     private int teamNo;
     private String createDate;
+
+    @Override
+    public String toString() {
+        return "teamNo:"+teamNo+",team_name:"+team_name+",peopleNum:"+peopleNum+",CreateDate:"+createDate;
+    }
 
     public int getRid() {
         return rid;

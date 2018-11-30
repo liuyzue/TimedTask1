@@ -5,7 +5,7 @@ package com.founder.model;
  *
  * @author F
  */
-public class RecordContractBypeopleInfo {
+public class RecordContractByPeopleInfo {
     // 主键
     private int rid;
     // 人群类型

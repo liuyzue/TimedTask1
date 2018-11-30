@@ -4,7 +4,26 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.founder.mapper.ContractTeamInfoMapper">
 
+    <resultMap id="findByCodeMap" type="com.founder.model.ContractTeamInfo">
+        <id property="team_name" column="organ_code"/>
+        <id property="peopleNum" column="num"/>
+    </resultMap>
+
     <select id="findAll" resultType="com.founder.model.ContractTeamInfo">
-    select * from CONTRACT_TEAM_INFO
-  </select>
+      select * from CONTRACT_TEAM_INFO
+    </select>
+    <select id="findByCode"  resultMap="findByCodeMap">
+        select count(*) num,t.organ_code  from SIGN@db_fds t group by t.organ_code order by num desc
+    </select>
+
+    <update id="updateRecord" parameterType="com.founder.model.ContractTeamInfo">
+        update CONTRACT_TEAM_INFO
+        <set>
+            <if test="team_name!=null">team_Name=#{team_name},</if>
+            <if test="peopleNum!=null">peopleNum=#{peopleNum},</if>
+            <if test="teamNo!=null">teamNo=#{teamNo},</if>
+            <if test="createDate">createDate=#{createDate}</if>
+        </set>
+        where rid=#{teamNo}
+    </update>
 </mapper>

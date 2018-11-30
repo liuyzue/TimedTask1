@@ -10,8 +10,8 @@ import java.util.Date;
 public class mainTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("Spring-mybatis.xml");
-        Cron sh= (Cron) context.getBean("RecordContractInfo");
+        Cron sh= (Cron) context.getBean("TimedTask");
 
-        //sh.cron();
+        sh.cron();
     }
 }

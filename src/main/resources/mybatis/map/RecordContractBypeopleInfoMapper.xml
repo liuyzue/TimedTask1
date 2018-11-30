@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.founder.mapper.RecordContractBypeopleInfoMapper">
 
-    <select id="findAll" resultType="com.founder.model.RecordContractBypeopleInfo">
+    <select id="findAll" resultType="com.founder.model.RecordContractByPeopleInfo">
     select * from RECORD_CONTRACT_BYPEOPLE_INFO
   </select>
     <select id="findjdPnumbersPTRQ" resultType="int" parameterType="java.lang.String">

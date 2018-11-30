@@ -1,6 +1,6 @@
 package com.founder.mapper;
 
-import com.founder.model.RecordContractBypeopleInfo;
+import com.founder.model.RecordContractByPeopleInfo;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface RecordContractBypeopleInfoMapper {
 
-    List<RecordContractBypeopleInfo> findAll();
+    List<RecordContractByPeopleInfo> findAll();
 
     String findPtype();
 
@@ -64,6 +64,6 @@ public interface RecordContractBypeopleInfoMapper {
 
     String findCreateDate();
 
-    void updateCard(RecordContractBypeopleInfo recordContractBypeopleInfo);
+    void updateCard(RecordContractByPeopleInfo recordContractBypeopleInfo);
 
 }

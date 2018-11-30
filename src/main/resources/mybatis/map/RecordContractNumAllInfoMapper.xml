@@ -5,6 +5,39 @@
 <mapper namespace="com.founder.mapper.RecordContractNumAllInfoMapper">
 
     <select id="findAll" resultType="com.founder.model.RecordContractNumAllInfo">
-    select * from RECORD_CONTRACT_NUM_ALL_INFO
-  </select>
+        select * from RECORD_CONTRACT_NUM_ALL_INFO
+    </select>
+    <select id="findFollowUpNum" resultType="int">
+        select count(*) from BI_PERSON_INFO@db_phdbd B
+        where EXISTS(
+          select person_id
+          from DM_DISEASE_INFO@db_phdbd D
+          where (D.HBP_FLAG=2 or D.DI_FLAG=2) AND D.STATUS = 1 AND D.IS_DELETE = 0 AND B.ID=D.PERSON_ID )
+        and B.filing_flag='1'
+    </select>
+    <select id="findRecordNum" resultType="int">
+        select count(*) from bi_person_info@db_phdbd where filing_flag='1'
+    </select>
+    <select id="findContractNum" resultType="int">
+        select  count(*) from sign@db_fds
+    </select>
+    <select id="findFollowUpSecondDI" resultType="int">
+        SELECT count(*) FROM DM_DIABETIC_FOLLOWUP@db_phdbd
+        WHERE  person_id IS NOT NULL
+    </select>
+    <select id="findFollowUpSecondHYPE" resultType="int">
+        SELECT count(*) FROM dm_hypertension_followup@db_phdbd
+        WHERE  person_id IS NOT NULL
+    </select>
+    <update id="updateRecord" parameterType="com.founder.model.RecordContractNumAllInfo">
+        update RECORD_CONTRACT_NUM_ALL_INFO
+        <set>
+            <if test="followUp != null">followUp=#{followUp},</if>
+            <if test="recordNum !=null">recordNum=#{recordNum},</if>
+            <if test="contract !=null">contract=#{contract},</if>
+            <if test="followUpSecond !=null">followUpSecond=#{followUpSecond},</if>
+            <if test="createDate !=null">createDate=#{createDate}</if>
+        </set>
+        where rid=1
+    </update>
 </mapper>

@@ -12,11 +12,16 @@ public class Cron {
     private static final Logger logger = LoggerFactory.getLogger(Cron.class);
 
     @Autowired
-    RecordContractInfoService rc;
+    RecordContractInfoService recordContractInfoService;
+    @Autowired
+    RecordContractNumAllInfoService recordContractNumAllInfoService;
+    @Autowired
+    ContractTeamInfoService contractTeamInfoService;
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Scheduled(cron = "0 0/30 * * * ?")
     public void cron() {
-        rc.sumNum();
-
+        recordContractInfoService.sumNum();
+        recordContractNumAllInfoService.updateRecordContractNumAllInfo();
+        contractTeamInfoService.updateContractTeamInfo();
     }
 }

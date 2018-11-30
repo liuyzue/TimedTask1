@@ -12,5 +12,17 @@ public interface RecordContractNumAllInfoMapper {
 
     List<RecordContractNumAllInfo> findAll();
 
+    int findFollowUpNum();
+
+    int findRecordNum();
+
+    int findContractNum();
+
+    int findFollowUpSecondDI();
+
+    int findFollowUpSecondHYPE();
+
+    void updateRecord(RecordContractNumAllInfo ra);
+
 
 }

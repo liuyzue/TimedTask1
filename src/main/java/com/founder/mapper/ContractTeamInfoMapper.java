@@ -13,4 +13,8 @@ public interface ContractTeamInfoMapper {
     List<ContractTeamInfo> findAll();
 
 
+    List<ContractTeamInfo> findByCode();
+
+    void updateRecord(ContractTeamInfo contractTeamInfo);
+
 }

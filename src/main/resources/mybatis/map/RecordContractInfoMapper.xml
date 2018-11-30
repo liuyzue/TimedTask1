@@ -22,5 +22,6 @@
             <if test="contractNot != null">contractNot=#{contractNot},</if>
             <if test="createDate != null">CREATEDATE=#{createDate}</if>
         </set>
+        where rid=1
     </update>
 </mapper>

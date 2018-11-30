@@ -19,6 +19,13 @@ public class RecordContractNumAllInfo {
 
     private String createDate;
 
+    public RecordContractNumAllInfo(int followUp,int recordNum,int contract,int followUpSecond){
+        this.contract=contract;
+        this.followUp=followUp;
+        this.followUpSecond=followUpSecond;
+        this.recordNum=recordNum;
+    }
+
     public int getRid() {
         return rid;
     }
